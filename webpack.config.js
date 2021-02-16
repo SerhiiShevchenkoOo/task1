@@ -71,8 +71,9 @@ module.exports = {
 		alias: {
 			'@': path.resolve(__dirname, '#src'),
 			'@assets': path.resolve(__dirname, '#src/assets'),
-			'@component': path.resolve(__dirname, '#src/script/component'),
-			'@utils': path.resolve(__dirname, '#src/script/utils'),
+			'@component': path.resolve(__dirname, '#src/script/component/'),
+			'@utils': path.resolve(__dirname, '#src/script/utils/'),
+			'@style': path.resolve(__dirname, '#src/script/styles-tw/'),
 		},
 	},
 	optimization: optimization(),
@@ -86,14 +87,14 @@ module.exports = {
 	plugins: [
 		new ESLintPlugin(),
 
-		new CopyWebpackPlugin({
-			patterns: [
-				{
-					from: './assets',
-					to: './assets',
-				},
-			],
-		}),
+		// new CopyWebpackPlugin({
+		// 	patterns: [
+		// 		{
+		// 			from: './assets',
+		// 			to: './assets',
+		// 		},
+		// 	],
+		// }),
 		new HTMLWebpackPlugin({
 			filename: './index.html',
 			template: './index.html',
